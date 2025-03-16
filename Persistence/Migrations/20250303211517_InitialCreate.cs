@@ -15,13 +15,16 @@ namespace Persistence.Migrations
                 name: "Activities",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
                     Title = table.Column<string>(type: "TEXT", nullable: true),
                     Date = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
                     Category = table.Column<string>(type: "TEXT", nullable: true),
+                    IsCancelled = table.Column<bool>(type: "INTEGER", nullable: false),
                     City = table.Column<string>(type: "TEXT", nullable: true),
-                    Venue = table.Column<string>(type: "TEXT", nullable: true)
+                    Venue = table.Column<string>(type: "TEXT", nullable: true),
+                    Latitude = table.Column<double>(type: "REAL", nullable: false),
+                    Longitude = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {

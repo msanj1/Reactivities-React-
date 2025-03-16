@@ -11,7 +11,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240611221321_InitialCreate")]
+    [Migration("20250303211517_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -22,8 +22,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Activity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Category")
@@ -37,6 +36,15 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsCancelled")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("Latitude")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Title")
                         .HasColumnType("TEXT");
